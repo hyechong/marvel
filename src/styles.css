@@ -1,0 +1,88 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+body{
+  background: #1f2122;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h1{
+  color: #fff;
+  text-align: center;
+}
+a{
+  text-decoration: none;
+}
+h4{
+  color:#fff;
+}
+.character-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 3rem;
+}
+.character{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #27292a;
+  margin: 0 10px 30px;
+  padding: 30px 15px 15px;
+  width: 300px; 
+  height: auto; 
+  border-radius: 23px; 
+  object-fit: cover; 
+  overflow: hidden;
+}
+.character .img-wrapper{
+  position: relative; 
+  width: 100%;
+  height: 380px;
+  border-radius: 23px; 
+  overflow: hidden; 
+  object-fit: cover;
+}
+img{
+  width: 100%;
+  height: 100%;
+}
+
+.detail-wrapper{
+  margin-bottom: 2.5rem;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  background: #27292a;
+  border-radius: 23px;
+}
+.detail-wrapper .img-wrapper{
+  position: relative; 
+  width: auto;
+  height: 480px;
+  border-radius: 23px; 
+  overflow: hidden; 
+  object-fit: cover;
+}
+.detail-wrapper .txt-wrapper{
+  width: 500px;
+  padding-left: 2.5rem;
+}
+.detail-wrapper h2{
+  color: #e75e8d;
+}
+.detail-wrapper p{
+  color:#666;
+}
+.detail-wrapper span{
+  color: #fff;
+}
+ol, ul{
+  list-style: none;
+  padding:0;
+}
+.detail-wrapper li{
+  color:#666;
+}
