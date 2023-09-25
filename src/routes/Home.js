@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Character from '../components/Character';
 
 function Home() {
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true);
   const [characters, setCharacters] = useState([]);
   const getCharacters = async () => {
     const json = await (
@@ -13,12 +13,13 @@ function Home() {
     setCharacters(json.data.results);
     setLoading(false);
   };
+  console.log(characters);
   useEffect(() => {
     getCharacters();
   }, []); // 코드를 한 번만 실행
   return (
     <div>
-      {loading ? (
+      {isLoading ? (
         <h1>Loading...</h1>
       ) : (
         <div>

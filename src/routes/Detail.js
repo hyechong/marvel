@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 function Detail() {
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true);
   const [details, setDetails] = useState([]);
   const { id } = useParams();
   console.log(id);
@@ -12,7 +12,7 @@ function Detail() {
         `https://marvel-proxy.nomadcoders.workers.dev/v1/public/characters/${id}`
       )
     ).json();
-    setDetails(json.data.results);
+    setDetails(json.data.results[0]);
     setLoading(false);
   };
   useEffect(() => {
@@ -20,7 +20,7 @@ function Detail() {
   }, []);
   return (
     <div>
-      {loading ? (
+      {isLoading ? (
         <h1>Loading...</h1>
       ) : (
         <div>
@@ -28,22 +28,18 @@ function Detail() {
           <div className='detail-wrapper'>
             <div className='img-wrapper'>
               <img
-                src={
-                  details[0].thumbnail.path +
-                  '.' +
-                  details[0].thumbnail.extension
-                }
-                alt={details[0].name}
+                src={details.thumbnail.path + '.' + details.thumbnail.extension}
+                alt={details.name}
               />
             </div>
             <div className='txt-wrapper'>
-              <h2>{details[0].name}</h2>
-              {details[0].description === '' ? null : (
-                <p>👉{details[0].description}</p>
+              <h2>{details.name}</h2>
+              {details.description === '' ? null : (
+                <p>👉{details.description}</p>
               )}
               <span>🎬 Series</span>
               <ul>
-                {details[0].series.items?.map((item) => (
+                {details.series.items?.map((item) => (
                   <li key={item.name}>✔️ {item.name}</li>
                 ))}
               </ul>
